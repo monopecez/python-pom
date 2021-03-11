@@ -1,0 +1,14 @@
+*.pyc
+screenshot.png
+result.html
+window_dump.xml
+.idea/
+RAMDUMP/*
+GFXDUMP/*
+__pycache__/*
+automation.log
+*.png
+*.gfx
+*.ram
+debug.log
+/debug.log

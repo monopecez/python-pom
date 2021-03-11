@@ -2,7 +2,7 @@ import logging
 import time
 import subprocess
 import ConfigFile
-from Utils.TLConnect import TestLink
+#from Utils.TLConnect import TestLink
 import functools
 
 LOGFORMAT = '%(asctime)-15s %(levelname)s %(message)s'
@@ -33,8 +33,6 @@ class Page():
 		Number of test cases that ran but fail
 	l_test_fail: list
 		A list of failed test cases
-	tls: TestLink
-		TestLink connection, used for result assignment
 	conf: configuration object
         Configuration object from config file
     
@@ -57,7 +55,7 @@ class Page():
 			logging.info("%s Config file is None" % driver.capabilities['deviceName'])
 			conf = ConfigFile.Config()
 
-		self._assertionDebug = conf.ASSERTION_DEBUG
+		self._assertionDebug = True
 		self.PACKAGE_NAME = conf.PACKAGE_NAME
 		self.DEVICE_NAME = driver.capabilities['deviceName']
 		self.driver = driver
@@ -74,7 +72,7 @@ class Page():
 		self.n_test_pass = 0
 		self.n_test_fail = 0
 		self.l_test_fail = list()
-		self.tls = TestLink(conf.DEVKEY, conf.TESTLINK_URL, str(conf.TESTPLANID), str(conf.BUILDID), str(conf.PLATFORMID), conf.RESULTASSIGNMENT, self.DEVICE_NAME)
+		#self.tls = TestLink(conf.DEVKEY, conf.TESTLINK_URL, str(conf.TESTPLANID), str(conf.BUILDID), str(conf.PLATFORMID), conf.RESULTASSIGNMENT, self.DEVICE_NAME)
 		self.conf = conf
 		
 	def goBack(self, sleep = 0):
@@ -301,7 +299,8 @@ class Page():
 			self.l_test_fail.append((tcid, str(item1), str(item2)))
 			self.n_test_fail += 1
 		if tcid != 'Not_Specified' and not debug:
-			self.tls.setResult(tcid, result, notes)
+			pass
+			#self.tls.setResult(tcid, result, notes)
 		else:
 			if debug:
 				logging.info("%s result is %s" % (tcid, result))
@@ -326,7 +325,8 @@ class Page():
 			self.l_test_fail.append((tcid, str(item1), str(item2)))
 			self.n_test_fail += 1
 		if tcid != 'Not_Specified' and not debug:
-			self.tls.setResult(tcid, result, notes)
+			pass
+			#self.tls.setResult(tcid, result, notes)
 		else:
 			if debug:
 				logging.info("%s result is %s" % (tcid, result))
@@ -347,7 +347,8 @@ class Page():
 			result = 'f'
 			ret = False
 		if tcid != 'Not_Specified' and not debug:
-			self.tls.setResult(tcid, result, str(item1) + " " + notes)
+			pass
+			#self.tls.setResult(tcid, result, str(item1) + " " + notes)
 		else:
 			if debug:
 				logging.info("%s result is %s" % (tcid, result))
@@ -387,7 +388,7 @@ class WebPage():
 		if conf == None:
 			conf = ConfigFile.Config()
 
-		self._assertionDebug = conf.ASSERTION_DEBUG
+		self._assertionDebug = True
 		self.driver = driver
 		self.stringDict = stringDict
 		self.n_test_cases = 0
@@ -395,7 +396,7 @@ class WebPage():
 		self.n_test_fail = 0
 		self.l_test_fail = list()
 		self.DEVICE_NAME = driver.name
-		self.tls = TestLink(conf.DEVKEY, conf.TESTLINK_URL, str(conf.TESTPLANID), str(conf.BUILDID), str(conf.PLATFORMID), conf.RESULTASSIGNMENT, self.DEVICE_NAME)
+		#self.tls = TestLink(conf.DEVKEY, str(conf.TESTPLANID), str(conf.BUILDID), str(conf.PLATFORMID), conf.RESULTASSIGNMENT, self.DEVICE_NAME)
 		self.conf = conf
 		
 		
@@ -497,7 +498,8 @@ class WebPage():
 			self.l_test_fail.append((tcid, str(item1), str(item2)))
 			self.n_test_fail += 1
 		if tcid != 'Not_Specified' and not debug:
-			self.tls.setResult(tcid, result, notes)
+			pass
+			#self.tls.setResult(tcid, result, notes)
 		else:
 			if debug:
 				logging.info("%s result is %s" % (tcid, result))
@@ -522,7 +524,8 @@ class WebPage():
 			self.l_test_fail.append((tcid, str(item1), str(item2)))
 			self.n_test_fail += 1
 		if tcid != 'Not_Specified' and not debug:
-			self.tls.setResult(tcid, result, notes)
+			pass
+			#self.tls.setResult(tcid, result, notes)
 		else:
 			if debug:
 				logging.info("%s result is %s" % (tcid, result))
@@ -543,7 +546,8 @@ class WebPage():
 			result = 'f'
 			ret = False
 		if tcid != 'Not_Specified' and not debug:
-			self.tls.setResult(tcid, result, str(item1) + " " + notes)
+			pass
+			#self.tls.setResult(tcid, result, str(item1) + " " + notes)
 		else:
 			if debug:
 				logging.info("%s result is %s" % (tcid, result))

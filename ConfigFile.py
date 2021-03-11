@@ -3,7 +3,6 @@ class Config():
 	DriverFactory.py consumes DEVICE_NAME, PACKAGE_NAME, and MAIN_ACTIVITY
 	Page.py consumes PACKAGE_NAME
 	CustomUtils.py consumes SAMSUNG_ACCOUNT_EMAIIL and SAMSUNG_ACCOUNT_PASSWORD for Samsung Account Removal
-	TLConnect.py consumes DEVKEY, PROJECTID, TESTPLANID, BUILDID, PLATFORMID, and RESULTASSIGNMENT for testlink test result assignment. To get testlink IDs, look at TLConnect.py in Utils folder
 	
 	Attributes
 	----------
@@ -24,24 +23,6 @@ class Config():
 	
 	SAMSUNG_ACCOUNT_PASSWORD: str
 	
-	DEVKEY: str
-		Testlink developer key. Used for result assignment
-	
-	PROJECTID: int
-		Project ID in TestLink of application under test
-	
-	TESTPLANID: int
-		Testplan ID in TestLink of application under test
-	
-	BUILDID: int
-		Build ID in TestLink of application under test
-	
-	PLATFORMID: int
-		Platform ID in TestLink of application under test
-	
-	RESULTASSIGNMENT: bool
-		Set result assignment.
-	
 	"""
 
 	
@@ -52,16 +33,6 @@ class Config():
 		self.APK_LOCATION = None # 'absoule path to apk file'
 		self.SAMSUNG_ACCOUNT_EMAIL = 'some_email@ema.il'
 		self.SAMSUNG_ACCOUNT_PASSWORD = 'pa$$w@rd12'
-		
-		"""TLConnect.py"""
-		self.TESTLINK_URL = "http://some.test.link.url/lib/api/xmlrpc/v1/xmlrpc.php"
-		self.DEVKEY = "d7f0e3aa23719e862e2fbdfa366f10b7"
-		self.PROJECTID = 99919
-		self.TESTPLANID = 278257
-		self.BUILDID =	934
-		self.PLATFORMID = 116
-		self.RESULTASSIGNMENT = False
-		self.ASSERTION_DEBUG = True
 		
 		"""Below items are custom config to be used in test"""
 		self.BASE_CMS_URL = "https://google-gruyere.appspot.com/"

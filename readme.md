@@ -10,8 +10,6 @@ This repository contains a set of files as a base for creating appium automation
 
 * [Appium-Python-Client](https://pypi.org/project/Appium-Python-Client/) package for python
 
-* [TestLink-API-Python-client](https://pypi.org/project/TestLink-API-Python-client/) package for python to enable Testlink integration (result assignment)
-
 * [Selenium](https://pypi.org/project/selenium/) package for python
 
 * [requests](https://pypi.org/project/requests/) package for python
@@ -19,7 +17,7 @@ This repository contains a set of files as a base for creating appium automation
  Use the package manager [pip](https://pip.pypa.io/en/stable/) to install both packages.
 
 ```bash
-pip install Appium-Python-Client Testlink-API-Python-client selenium requests
+pip install Appium-Python-Client selenium requests
 ```
 
 * [adb.exe](https://developer.android.com/studio/releases/platform-tools) that can be called from anywhere ([added to PATH environment variable](https://lifehacker.com/the-easiest-way-to-install-androids-adb-and-fastboot-to-1586992378))
@@ -51,8 +49,6 @@ This class is to be filled with strings on the application. Support multiple lan
 ### Utils/CustomUtils.py
 A Class containing custom utility to extend base functionality. Some of defined custom utility are dumpGFX, dumpRAM
 
-### Utils/TLConnect.py
-Testlink connection manager
 
 ### run_selenium.py or run_appium.py
 The main test script

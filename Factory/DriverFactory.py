@@ -38,7 +38,7 @@ class DriverFactory:
 	
 		try:
 			logging.info("Checking for adb.exe executable ...")
-			subprocess.getoutput('adb.exe version')
+			subprocess.run('adb.exe version')
 		except:
 			logging.info("adb.exe executable is not found on PATH variable")
 			logging.info("using supplied adb.exe files inside Utils folder")
